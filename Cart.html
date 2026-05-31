@@ -136,16 +136,16 @@
             cart.forEach((item, index) => {
         total += parseFloat(item.price.replace('$', ''));
         // في دالة updateCart داخل Cart.html
-            container.innerHTML += `
-                <div class="cart-item">
-                    <img src="/${item.img}" alt="${item.title}" onerror="this.src='img/default.jpg'">
-                    <div>
-                        <h4>${item.title}</h4>
-                        <p>${item.price}</p>
-                    </div>
-                    <button class="remove-btn" onclick="removeItem(${index})">removal</button>
-                </div>
-            `;
+          container.innerHTML += `
+    <div class="cart-item">
+        <img src="${item.img}" alt="${item.title}" onerror="this.src='img/default.jpg'">
+        <div>
+            <h4>${item.title}</h4>
+            <p>${item.price}</p>
+        </div>
+        <button class="remove-btn" onclick="removeItem(${index})">removal</button>
+    </div>
+`;
     });
             totalDisplay.innerText = "Total: $" + total.toFixed(2);
         }
