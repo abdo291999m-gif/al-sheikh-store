@@ -126,42 +126,42 @@
         <i class='bx bx-up-arrow-alt scrollup__icon' ></i>
     </a>
     <script>
-        function updateCart() {
-
-
-    // تصحيح المسارات القديمة المخزنة برمجياً
+       function updateCart() {
+    // 1. جلب البيانات أولاً
+    let cart = JSON.parse(localStorage.getItem('myCart')) || [];
+    
+    // 2. تصحيح المسارات المعطوبة (بدون الشرطة المائلة في البداية)
     cart = cart.map(item => {
-        if(item.img.startsWith('/')) {
-            item.img = item.img.substring(1); // حذف الشرطة المائلة الأولى
+        if(item.img && item.img.startsWith('/')) {
+            item.img = item.img.substring(1); 
         }
         return item;
     });
+    
+    // 3. حفظ المسارات المصححة في الذاكرة
     localStorage.setItem('myCart', JSON.stringify(cart));
     
-   
-            let cart = JSON.parse(localStorage.getItem('myCart')) || [];
-            const container = document.getElementById('cart-items-list');
-            const totalDisplay = document.getElementById('cart-total');
-            container.innerHTML = '';
-            let total = 0;
+    // 4. عرض العناصر في الصفحة
+    const container = document.getElementById('cart-items-list');
+    const totalDisplay = document.getElementById('cart-total');
+    container.innerHTML = '';
+    let total = 0;
 
-            cart.forEach((item, index) => {
+    cart.forEach((item, index) => {
         total += parseFloat(item.price.replace('$', ''));
-        // في دالة updateCart داخل Cart.html
-          container.innerHTML += `
-    <div class="cart-item">
-        <img src="${item.img}" alt="${item.title}" onerror="this.src='img/default.jpg'">
-        <div>
-            <h4>${item.title}</h4>
-            <p>${item.price}</p>
-        </div>
-        <button class="remove-btn" onclick="removeItem(${index})">removal</button>
-    </div>
-`;
+        container.innerHTML += `
+            <div class="cart-item">
+                <img src="${item.img}" alt="${item.title}" onerror="this.src='img/default.jpg'">
+                <div>
+                    <h4>${item.title}</h4>
+                    <p>${item.price}</p>
+                </div>
+                <button class="remove-btn" onclick="removeItem(${index})">removal</button>
+            </div>
+        `;
     });
-            totalDisplay.innerText = "Total: $" + total.toFixed(2);
-        }
-
+    totalDisplay.innerText = "Total: $" + total.toFixed(2);
+}
         function removeItem(index) {
             let cart = JSON.parse(localStorage.getItem('myCart'));
             cart.splice(index, 1);
