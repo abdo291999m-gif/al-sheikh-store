@@ -127,6 +127,18 @@
     </a>
     <script>
         function updateCart() {
+
+
+    // تصحيح المسارات القديمة المخزنة برمجياً
+    cart = cart.map(item => {
+        if(item.img.startsWith('/')) {
+            item.img = item.img.substring(1); // حذف الشرطة المائلة الأولى
+        }
+        return item;
+    });
+    localStorage.setItem('myCart', JSON.stringify(cart));
+    
+   
             let cart = JSON.parse(localStorage.getItem('myCart')) || [];
             const container = document.getElementById('cart-items-list');
             const totalDisplay = document.getElementById('cart-total');
