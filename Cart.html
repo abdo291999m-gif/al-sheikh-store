@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+ <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>shopping-cart</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* تنسيقات خاصة بصفحة السلة */
+        .cart-container { max-width: 800px; margin: 50px auto; padding: 20px; }
+        .cart-item { 
+            display: flex; align-items: center; justify-content: space-between;
+            background: var(--body-color); border: 1px solid var(--first-color);
+            padding: 15px; margin-bottom: 15px; border-radius: 15px;
+        }
+        .cart-item img { width: 80px; height: 80px; border-radius: 10px; object-fit: cover; }
+        .remove-btn { background: #884449; color: white; padding: 5px 15px; border-radius: 5px; cursor: pointer; border: none; }
+    </style>
+
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+     <header class="header" id="header">
+        <nav class="nav container">
+            <a href="aboutUs.html" class="nav__logo"> 
+                <i class='bx bxs-watch nav__logo-icon'></i> Al Sheikh 
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link active-link">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">Products</a>
+                        <ul class="dropdown-content">
+                            <li><a href="MEN.html">Men</a></li>
+                            <li><a href="women.html">wom</a></li>
+                        </ul> 
+                    </li>
+                    <li class="nav__item">
+                        <a href="new.html" class="nav__link">New</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="SignIn.html" class="nav__link">Sign In</a>
+                    </li>
+                </ul>
+
+                <div class="nav__close" id="nav-close">
+                    <i class='bx bx-x' ></i>
+                </div>
+            </div>
+
+
+            <div class="nav__btns">
+                <i class='bx bx-moon change-theme' id="theme-button"></i>
+
+                <div class="nav__shop" id="cart-shop" style="cursor: pointer;">
+                    <i class='bx bx-shopping-bag'></i>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-grid-alt' ></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="cart-container">
+        <h2 style="text-align: center; color: var(--title-color);" >shopping cart </h2>
+        <div id="cart-items-list"></div>
+        <div id="cart-total" style="text-align: center; font-size: 1.5rem; margin-top: 20px; color: var(--first-color);"></div>
+        <div style="text-align: center; margin-top: 20px;">
+            <button class="btn-primary">complete the purchase process </button>
+        </div>
+    </div>
+ <footer class="footer section">
+        <div class="footer__container container grid">
+            <div class="footer__content">
+                <h3 class="footer__title">Our information</h3>
+                <ul class="footer__list">
+                    <li>1234 - Peru</li>
+                    <li>La Libertad 43210</li>
+                    <li>123-456-789</li>
+                </ul>
+            </div>
+            <div class="footer__content">
+                <h3 class="footer__title">About Us</h3>
+                <ul class="footer__links">
+                    <li><a href="#" class="footer__link">Support Center</a></li>
+                    <li><a href="#" class="footer__link">Customer Support</a></li>
+                    <li><a href="aboutUs.html" class="footer__link">About Us</a></li>
+                    <li><a href="#" class="footer__link">Copy Right</a></li>
+                </ul>
+            </div>
+            <div class="footer__content">
+                <h3 class="footer__title">Product</h3>
+                <ul class="footer__links">
+                    <li><a href="#" class="footer__link">Road bikes</a></li>
+                    <li><a href="#" class="footer__link">Mountain bikes</a></li>
+                    <li><a href="#" class="footer__link">Electric</a></li>
+                    <li><a href="#" class="footer__link">Accesories</a></li>
+                </ul>
+            </div>
+            <div class="footer__content">
+                <h3 class="footer__title">Social</h3>
+                <ul class="footer__social">
+                    <a href="https://www.facebook.com/" target="_blank" class="footer__social-link"><i class='bx bxl-facebook'></i></a>
+                    <a href="https://twitter.com/" target="_blank" class="footer__social-link"><i class='bx bxl-twitter' ></i></a>
+                    <a href="https://www.instagram.com/" target="_blank" class="footer__social-link"><i class='bx bxl-instagram' ></i></a>
+                </ul>
+            </div>
+        </div>
+        <span class="footer__copy">&#169; متجر الشيخ. All rights reserved</span>
+    </footer>
+    <a href="#" class="scrollup" id="scroll-up"> 
+        <i class='bx bx-up-arrow-alt scrollup__icon' ></i>
+    </a>
+    <script>
+        function updateCart() {
+            let cart = JSON.parse(localStorage.getItem('myCart')) || [];
+            const container = document.getElementById('cart-items-list');
+            const totalDisplay = document.getElementById('cart-total');
+            container.innerHTML = '';
+            let total = 0;
+
+            cart.forEach((item, index) => {
+        total += parseFloat(item.price.replace('$', ''));
+        // في دالة updateCart داخل Cart.html
+            container.innerHTML += `
+                <div class="cart-item">
+                    <img src="/${item.img}" alt="${item.title}" onerror="this.src='img/default.jpg'">
+                    <div>
+                        <h4>${item.title}</h4>
+                        <p>${item.price}</p>
+                    </div>
+                    <button class="remove-btn" onclick="removeItem(${index})">removal</button>
+                </div>
+            `;
+    });
+            totalDisplay.innerText = "Total: $" + total.toFixed(2);
+        }
+
+        function removeItem(index) {
+            let cart = JSON.parse(localStorage.getItem('myCart'));
+            cart.splice(index, 1);
+            localStorage.setItem('myCart', JSON.stringify(cart));
+            updateCart();
+        }
+
+        updateCart();
+
+         document.addEventListener('DOMContentLoaded', () => {
+        // --- 1. Dark Mode ---
+        const themeButton = document.getElementById('theme-button');
+        const darkTheme = 'dark-theme';
+        const iconTheme = 'bx-sun'; 
+        if (themeButton) {
+            themeButton.addEventListener('click', () => {
+                document.body.classList.toggle(darkTheme);
+                themeButton.classList.toggle(iconTheme);
+            });
+        }
+
+        // --- 2. السلة (Cart) ---
+        const cartShop = document.getElementById('cart-shop');
+        const cartContainer = document.getElementById('cart-container');
+        const cartItems = document.getElementById('cart-items');
+
+        if (cartShop && cartContainer) {
+            cartShop.addEventListener('click', () => {
+                const isHidden = cartContainer.style.display === 'none' || cartContainer.style.display === '';
+                cartContainer.style.display = isHidden ? 'block' : 'none';
+            });
+        }
+
+    // داخل دالة الضغط على زر الإضافة
+document.querySelectorAll('.products__button').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        const card = e.target.closest('.products__card');
+        // داخل دالة الإضافة للسلة
+        const product = {
+            title: card.querySelector('.products__title').innerText,
+            price: card.querySelector('.products__price').innerText,
+            img: card.querySelector('.products__img').getAttribute('src') // تأكد من استخدام getAttribute
+        };
+
+        let cart = JSON.parse(localStorage.getItem('myCart')) || [];
+        cart.push(product);
+        localStorage.setItem('myCart', JSON.stringify(cart));
+        
+        alert("تمت إضافة المنتج للسلة!");
+    });
+});
+
+// تعديل زر السلة في الهيدر لينقلك للصفحة الجديدة
+document.getElementById('cart-shop').addEventListener('click', () => {
+    window.location.href = 'Cart.html';
+});
+
+        // --- 3. البحث ---
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                const term = e.target.value.toLowerCase();
+                document.querySelectorAll('.products__card').forEach(card => {
+                    const title = card.querySelector('.products__title').innerText.toLowerCase();
+                    card.style.display = title.includes(term) ? "" : "none";
+                });
+            });
+        }
+    });
+        /* ================= SHOW MENU ================= */
+const navMenu = document.getElementById('nav-menu'),
+      navToggle = document.getElementById('nav-toggle'),
+      navClose = document.getElementById('nav-close')
+
+/* ===== Menu Show ===== */
+/* Validate if constant exists */
+if(navToggle){
+    navToggle.addEventListener('click', () =>{
+        navMenu.classList.add('show-menu')
+    })
+}
+
+/* ===== Menu Hidden ===== */
+/* Validate if constant exists */
+if(navClose){
+    navClose.addEventListener('click', () =>{
+        navMenu.classList.remove('show-menu')
+    })
+}
+    </script>
+</body>
+</html>

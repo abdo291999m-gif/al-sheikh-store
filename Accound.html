@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء حساب - متجر الشيخ</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body class="sin">
+   <header class="header" id="header">
+        <nav class="nav container">
+            <a href="aboutUs.html" class="nav__logo"> 
+                <i class='bx bxs-watch nav__logo-icon'></i> Al Sheikh 
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link active-link">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">Products</a>
+                        <ul class="dropdown-content">
+                            <li><a href="MEN.html">Men</a></li>
+                            <li><a href="women.html">Women</a></li>
+                        </ul> 
+                    </li>
+                    <li class="nav__item">
+                        <a href="new.html" class="nav__link">New</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="SignIn.html" class="nav__link">Sign In</a>
+                    </li>
+                </ul>
+
+                <div class="nav__close" id="nav-close">
+                    <i class='bx bx-x' ></i>
+                </div>
+            </div>
+
+            <div class="nav__btns">
+                <i class='bx bx-moon change-theme' id="theme-button"></i>
+
+                <div class="nav__shop" id="cart-shop">
+                    <i class='bx bx-shopping-bag' ></i>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-grid-alt' ></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+    
+    <div class="auth-page">
+        <div class="auth-container">
+            <h2 class="auth-title">إنشاء حساب جديد</h2>
+            
+            <form action="#" class="auth-form">
+                <div class="auth-input-group">
+                    <label for="fullname" class="auth-label">الاسم الكامل</label>
+                    <input type="text" id="fullname" placeholder="أدخل اسمك الثلاثي" class="auth-input" required>
+                </div>
+
+                <div class="auth-input-group">
+                    <label for="email" class="auth-label">البريد الإلكتروني</label>
+                    <input type="email" id="email" placeholder="example@domain.com" class="auth-input" required>
+                </div>
+                
+                <div class="auth-input-group">
+                    <label for="password" class="auth-label">كلمة المرور</label>
+                    <input type="password" id="password" placeholder="أدخل كلمة مرور قوية" class="auth-input" required>
+                </div>
+
+                <div class="auth-input-group">
+                    <label for="confirm-password" class="auth-label">تأكيد كلمة المرور</label>
+                    <input type="password" id="confirm-password" placeholder="أعد كتابة كلمة المرور" class="auth-input" required>
+                </div>
+                
+                <div class="auth-checkbox-group">
+                    <input type="checkbox" id="terms" class="auth-checkbox" required>
+                    <label for="terms" class="auth-label-inline">أوافق على الشروط والأحكام وسياسة الخصوصية لمتجر الشيخ.</label>
+                </div>
+
+                <button type="submit" class="button auth-submit-btn">إنشاء الحساب</button>
+                
+                <div class="auth-footer">
+                    <span class="auth-text">لديك حساب بالفعل؟ </span>
+                    <a href="SignIn.html" class="auth-link">تسجيل الدخول من هنا</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    </main>
+    
+</body>
+</html>

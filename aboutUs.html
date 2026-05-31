@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>متجر الشيخ للساعات</title>
+</head>
+<body>
+
+     <!--==================== HEADER ====================-->
+   <header class="header" id="header">
+        <nav class="nav container">
+            <a href="aboutUs.html" class="nav__logo"> 
+                <i class='bx bxs-watch nav__logo-icon'></i> Al Sheikh 
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link active-link">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">Products</a>
+                        <ul class="dropdown-content">
+                            <li><a href="MEN.html">Men</a></li>
+                            <li><a href="women.html">Women</a></li>
+                        </ul> 
+                    </li>
+                    <li class="nav__item">
+                        <a href="new.html" class="nav__link">New</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="SignIn.html" class="nav__link">Sign In</a>
+                    </li>
+                </ul>
+
+                <div class="nav__close" id="nav-close">
+                    <i class='bx bx-x' ></i>
+                </div>
+            </div>
+
+            <div class="nav__btns">
+                <i class='bx bx-moon change-theme' id="theme-button"></i>
+
+                <div class="nav__shop" id="cart-shop">
+                    <i class='bx bx-shopping-bag' ></i>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-grid-alt' ></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!--==================== MAIN ====================-->
+    <main class="main">
+    <!-- About Us Hero Section -->
+    <div class="about-hero">
+        <div class="about-overlay"></div>
+        <div class="about-content">
+            <h1 class="about-title">متجر الشيخ</h1>
+            <p class="about-description">
+                نحن وجهتك الأولى لأرقى الساعات العالمية. نجمع بين الأصالة، والفخامة، والتصميم العصري لنقدم لك تجربة تسوق لا تُنسى.
+            </p>
+            <p  class="about-description">لماذا التسوق من محل الشيخ؟<br>
+فريقنا العائلى من المهنيين ذوي المهارات فى تجارة الساعات، يختارون الساعات التى تلبي معايير الجودة الخاصة بك، و كذلك نتابع عن كثب الجديد فى عالم الموضة وأحدث التطورات<br>
+• الشفافية: تقديم معلومات صادقة وكاملة أثناء الاستفسارات و التعاملات<br>
+• الجودة: مستمرين في المحافظة على المعايير العالية في الإنتاج وتوفير المنتجات<br>
+• القدرة على تحمل التكاليف: زبائننا هم من أولوياتنا، لذلك نحن نقدم مجموعة واسعة من المنتجات المتاحة بأسعار معقولة<br>
+اتصل بنا الآن واحصل على أفضل تجربة تسوق! info@sheikh.ly <br> * هذا الموقع نموذج تجريبي لغرض التصميم والعرض فقط.</p> <br>
+            <a href="index.html" class="button about-btn">العودة للمتجر</a>
+        </div>
+      
+                
+                <div class="testimonial__images">
+                    <div class="testimonial__square"></div>
+                    <img src="img/testimonial.png" alt="" class="testimonial__img">
+
+                    
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- 1. Dark Mode ---
+        const themeButton = document.getElementById('theme-button');
+        const darkTheme = 'dark-theme';
+        const iconTheme = 'bx-sun'; 
+        if (themeButton) {
+            themeButton.addEventListener('click', () => {
+                document.body.classList.toggle(darkTheme);
+                themeButton.classList.toggle(iconTheme);
+            });
+        }
+
+        // --- 2. السلة (Cart) ---
+        const cartShop = document.getElementById('cart-shop');
+        const cartContainer = document.getElementById('cart-container');
+        const cartItems = document.getElementById('cart-items');
+
+        if (cartShop && cartContainer) {
+            cartShop.addEventListener('click', () => {
+                const isHidden = cartContainer.style.display === 'none' || cartContainer.style.display === '';
+                cartContainer.style.display = isHidden ? 'block' : 'none';
+            });
+        }
+
+    // داخل دالة الضغط على زر الإضافة
+document.querySelectorAll('.products__button').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        const card = e.target.closest('.products__card');
+        // داخل دالة الإضافة للسلة
+        const product = {
+            title: card.querySelector('.products__title').innerText,
+            price: card.querySelector('.products__price').innerText,
+            img: card.querySelector('.products__img').getAttribute('src') // تأكد من استخدام getAttribute
+        };
+
+        let cart = JSON.parse(localStorage.getItem('myCart')) || [];
+        cart.push(product);
+        localStorage.setItem('myCart', JSON.stringify(cart));
+        
+        alert("تمت إضافة المنتج للسلة!");
+    });
+});
+
+// تعديل زر السلة في الهيدر لينقلك للصفحة الجديدة
+document.getElementById('cart-shop').addEventListener('click', () => {
+    window.location.href = 'Cart.html';
+});
+
+        // --- 3. البحث ---
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                const term = e.target.value.toLowerCase();
+                document.querySelectorAll('.products__card').forEach(card => {
+                    const title = card.querySelector('.products__title').innerText.toLowerCase();
+                    card.style.display = title.includes(term) ? "" : "none";
+                });
+            });
+        }
+    });
+    /* ================= SHOW MENU ================= */
+const navMenu = document.getElementById('nav-menu'),
+      navToggle = document.getElementById('nav-toggle'),
+      navClose = document.getElementById('nav-close')
+
+/* ===== Menu Show ===== */
+/* Validate if constant exists */
+if(navToggle){
+    navToggle.addEventListener('click', () =>{
+        navMenu.classList.add('show-menu')
+    })
+}
+
+/* ===== Menu Hidden ===== */
+/* Validate if constant exists */
+if(navClose){
+    navClose.addEventListener('click', () =>{
+        navMenu.classList.remove('show-menu')
+    })
+}
+</script>
+  
+</body>
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>متجر الشيخ للساعات</title>
+</head>
+<body>
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="aboutUs.html" class="nav__logo"> 
+                <i class='bx bxs-watch nav__logo-icon'></i> Al Sheikh 
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link active-link">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">Products</a>
+                        <ul class="dropdown-content">
+                            <li><a href="MEN.html">Men</a></li>
+                            <li><a href="women.html">wom</a></li>
+                        </ul> 
+                    </li>
+                    <li class="nav__item">
+                        <a href="new.html" class="nav__link">New</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="SignIn.html" class="nav__link">Sign In</a>
+                    </li>
+                </ul>
+
+                <div class="nav__close" id="nav-close">
+                    <i class='bx bx-x' ></i>
+                </div>
+            </div>
+
+
+            <div class="nav__btns">
+                <i class='bx bx-moon change-theme' id="theme-button"></i>
+
+                <div class="nav__shop" id="cart-shop" style="cursor: pointer;">
+                    <i class='bx bx-shopping-bag'></i>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-grid-alt' ></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+        <div id="cart-container" style="display: none; position: fixed; right: 20px; top: 80px; width: 300px; background: #fff; border: 1px solid #ccc; padding: 15px; z-index: 9999; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+    <h3 style="margin-bottom: 10px;">سلة التسوق</h3>
+    <div id="cart-items"></div>
+</div>
+    <main class="main">
+       
+          <section class="hero">
+
+        <div class="hero-backgrounds">
+            <div class="hero-bg"></div>
+            <div class="hero-bg"></div>
+            <div class="hero-bg"></div>
+        </div>
+
+        <div class="container" >
+            <div class="hero-content" >
+                <h1>Al Sheikh<br><span>Watches Store</span></h1>
+                <p class="hero-subtitle">Our store offers the best deals on stunning unique watches.</p>
+                <div class="hero-buttons">
+                    <a href="#products" class="btn-primary">Start Now</a>
+                    <a href="#discound"  class="btn-secondary">Exclusive Discounts</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <section class="products section container" id="products">
+    <h2 class="section__title">Products</h2>
+                <!------------------- حقل البحث ----------------------->
+<div class="search-container" style="text-align: center; margin-bottom: 20px;">
+    <input type="text" id="searchInput" placeholder=" Search ..." 
+           style="padding: 10px; width: 300px; border-radius: 5px; border: 1px solid #ccc;">
+</div>
+    
+    <div class="products__container grid">
+        
+        <article class="products__card">
+            <img src="img/men10.webp" alt="Spirit rose" class="products__img">
+            <h3 class="products__title">Tissot Gentleman</h3>
+            <span class="products__price">$1500</span>
+            
+            <div class="product__description-box">
+                <h4 class="desc__title">مواصفات الساعة:</h4>
+                <p class="desc__text">ساعة كلاسيكية بقرص أسود وسوار جلدي بني يمنحها مظهراً أنيقاً وعملياً.</p>
+            </div>
+            
+            <button class="products__button"><i class='bx bx-shopping-bag'></i></button>
+        </article>
+
+        <article class="products__card">
+            <img src="img/men3.webp" alt="Khaki pilot" class="products__img">
+            <h3 class="products__title"> Chemin des Tourelles</h3>
+            <span class="products__price">$1350</span>
+            
+            <div class="product__description-box">
+                <h4 class="desc__title">مواصفات الساعة:</h4>
+                <p class="desc__text">ساعة أوتوماتيكية فاخرة بقرص أزرق مفتوح يكشف عن تعقيدات الحركة الميكانيكية.</p>
+            </div>
+            
+            <button class="products__button"><i class='bx bx-shopping-bag'></i></button>
+        </article>
+
+        <article class="products__card">
+            <img src="img/men1.webp" alt="Jubilee black" class="products__img">
+            <h3 class="products__title">Seastar 1000</h3>
+            <span class="products__price">$870</span>
+            
+            <div class="product__description-box">
+                <h4 class="desc__title">مواصفات الساعة:</h4>
+                <p class="desc__text">ساعة غوص رياضية باللون الأسود بالكامل، مصممة لتحمل ظروف الاستخدام الشاق.</p>
+            </div>
+            
+            <button class="products__button"><i class='bx bx-shopping-bag'></i></button>
+        </article>
+
+        <article class="products__card">
+            <img src="img/women5.webp" alt="Fosil me3" class="products__img">
+            <h3 class="products__title">Heritage Porto</h3>
+            <span class="products__price">$650</span>
+            
+            <div class="product__description-box">
+                <h4 class="desc__title">مواصفات الساعة:</h4>
+                 <p class="desc__text">ساعة بتصميم مستطيل كلاسيكي مستوحى من طرازات الأربعينيات مع سوار جلدي أسود.</p>
+            </div>
+            <button class="products__button"><i class='bx bx-shopping-bag'></i></button>
+        </article>
+
+        <article class="products__card">
+            <img src="img/women1.webp" alt="Duchen" class="products__img">
+            <h3 class="products__title">PRX</h3>
+            <span class="products__price">$950</span>
+            
+            <div class="product__description-box">
+                <h4 class="desc__title">مواصفات الساعة:</h4>
+               
+                <p class="desc__text"> ساعة عصرية تجمع بين الفولاذ المقاوم للصدأ واللمسات الذهبية بتصميم "ريترو" مميز.</p>
+            </div>
+            
+            <button class="products__button"><i class='bx bx-shopping-bag'></i></button>
+        </article>
+
+        <article class="products__card">
+            <img src="img/women2.webp" alt="Duchen" class="products__img">
+            <h3 class="products__title">Lovely</h3>
+            <span class="products__price">$950</span>
+            
+            <div class="product__description-box">
+                <h4 class="desc__title">مواصفات الساعة:</h4>
+                <p class="desc__text">ساعة نسائية ناعمة ذات تصميم مستطيل رقيق بلمسات ذهبية تضفي طابعاً من الأنوثة والفخامة.</p>
+            </div>
+            
+            <button class="products__button"><i class='bx bx-shopping-bag'></i></button>
+        </article>
+
+    </div>
+</section>
+
+    </main>
+
+       <section class="offers section container" id="discound">
+    <div class="offers__container" >
+        
+        <div class="offer__card"  style="background-image: linear-gradient(to left, rgba(28, 20, 14, 0.8) 40%, rgba(28, 20, 14, 0.1)), url(img/desboss.jpg);">
+            <div class="offer__data" >
+                <span class="offer__subtitle">لفترة محدودة</span>
+                <h3 class="offer__title">تخفيض 30%</h3>
+                <a href="#products" class="offer__button">اشتري الآن</a>
+            </div>
+        </div>
+
+        <div class="offer__card" style="background-image: linear-gradient(to left, rgba(28, 20, 14, 0.8) 40%, rgba(28, 20, 14, 0.1)), url(img/womendes.jpg);">
+            <div class="offer__data">
+                <span class="offer__subtitle">لفترة محدودة</span>
+                <h3 class="offer__title">تخفيض 30%</h3>
+                <a href="#products" class="offer__button">اشتري الآن</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+ 
+    
+    <section class="brands section container">
+            <h2 class="section__title">Best Selling Brands</h2>
+            <div class="brands__container">
+                <div class="brand__item">
+                    <img src="img/rolex.jpg" alt="Rolex" class="brand__img">
+                </div>
+                <div class="brand__item">
+                    <img src="img/omegalogo.jpg" alt="Omega" class="brand__img">
+                </div>
+                <div class="brand__item">
+                    <img src="img/bulgarilogo.jpg" alt="Bvlgari" class="brand__img">
+                </div>
+                <div class="brand__item">
+                    <img src="img/bosslogo.jpg" alt="Hugo Boss" class="brand__img">
+                </div>
+            </div>
+        </section>
+
+    <section class="faq-section" id="faq" dir="rtl">
+        <div class="faq__container container">
+            <h1 class="faq__main-title">أسئلة متكررة</h1>
+            
+            <div class="faq__content-wrapper">
+                <div class="faq__item">
+                    <div class="faq__header">
+                        <div class="faq__question">
+                            <i class='bx bx-check-square faq__icon'></i>
+                            <h3 class="faq__title">هل المنتجات المعروضة أصلية و جديدة؟</h3>
+                        </div>
+                    </div>
+                    <div class="faq__content">
+                        <p class="faq__answer">جميع المنتجات جديدة و أصلية.</p>
+                    </div>
+                </div>
+
+                <div class="faq__item">
+                    <div class="faq__header">
+                        <div class="faq__question">
+                            <i class='bx bx-check-square faq__icon'></i>
+                            <h3 class="faq__title">هل لديكم توصيل طلبات؟</h3>
+                        </div>
+                    </div>
+                    <div class="faq__content">
+                        <p class="faq__answer">نقوم بتوصيل الطلبات إلى جميع المدن الليبية و تختلف تكلفة الشحن من مدينة إلى أخرى مابين (15 إلى 35 د.ل).</p>
+                    </div>
+                </div>
+
+                <div class="faq__item">
+                    <div class="faq__header">
+                        <div class="faq__question">
+                            <i class='bx bx-check-square faq__icon'></i>
+                            <h3 class="faq__title">ماهي مدة التوصيل؟</h3>
+                        </div>
+                    </div>
+                    <div class="faq__content">
+                        <p class="faq__answer">من 1 يوم إلى 8 أيام حسب المدينة و الدولة.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer section">
+        <div class="footer__container container grid">
+            <div class="footer__content">
+                <h3 class="footer__title">Our information</h3>
+                <ul class="footer__list">
+                    <li>1234 - Peru</li>
+                    <li>La Libertad 43210</li>
+                    <li>123-456-789</li>
+                </ul>
+            </div>
+            <div class="footer__content">
+                <h3 class="footer__title">About Us</h3>
+                <ul class="footer__links">
+                    <li><a href="#" class="footer__link">Support Center</a></li>
+                    <li><a href="#" class="footer__link">Customer Support</a></li>
+                    <li><a href="aboutUs.html" class="footer__link">About Us</a></li>
+                    <li><a href="#" class="footer__link">Copy Right</a></li>
+                </ul>
+            </div>
+            <div class="footer__content">
+                <h3 class="footer__title">Product</h3>
+                <ul class="footer__links">
+                    <li><a href="#" class="footer__link">Road bikes</a></li>
+                    <li><a href="#" class="footer__link">Mountain bikes</a></li>
+                    <li><a href="#" class="footer__link">Electric</a></li>
+                    <li><a href="#" class="footer__link">Accesories</a></li>
+                </ul>
+            </div>
+            <div class="footer__content">
+                <h3 class="footer__title">Social</h3>
+                <ul class="footer__social">
+                    <a href="https://www.facebook.com/" target="_blank" class="footer__social-link"><i class='bx bxl-facebook'></i></a>
+                    <a href="https://twitter.com/" target="_blank" class="footer__social-link"><i class='bx bxl-twitter' ></i></a>
+                    <a href="https://www.instagram.com/" target="_blank" class="footer__social-link"><i class='bx bxl-instagram' ></i></a>
+                </ul>
+            </div>
+        </div>
+        <span class="footer__copy">&#169; متجر الشيخ. All rights reserved</span>
+    </footer>
+
+    <a href="#" class="scrollup" id="scroll-up"> 
+        <i class='bx bx-up-arrow-alt scrollup__icon' ></i>
+    </a>
+    
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- 1. Dark Mode ---
+        const themeButton = document.getElementById('theme-button');
+        const darkTheme = 'dark-theme';
+        const iconTheme = 'bx-sun'; 
+        if (themeButton) {
+            themeButton.addEventListener('click', () => {
+                document.body.classList.toggle(darkTheme);
+                themeButton.classList.toggle(iconTheme);
+            });
+        }
+
+        // --- 2. السلة (Cart) ---
+        const cartShop = document.getElementById('cart-shop');
+        const cartContainer = document.getElementById('cart-container');
+        const cartItems = document.getElementById('cart-items');
+
+        if (cartShop && cartContainer) {
+            cartShop.addEventListener('click', () => {
+                const isHidden = cartContainer.style.display === 'none' || cartContainer.style.display === '';
+                cartContainer.style.display = isHidden ? 'block' : 'none';
+            });
+        }
+
+    // داخل دالة الضغط على زر الإضافة
+document.querySelectorAll('.products__button').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        const card = e.target.closest('.products__card');
+        // داخل دالة الإضافة للسلة
+        const product = {
+            title: card.querySelector('.products__title').innerText,
+            price: card.querySelector('.products__price').innerText,
+            img: card.querySelector('.products__img').getAttribute('src') // تأكد من استخدام getAttribute
+        };
+
+        let cart = JSON.parse(localStorage.getItem('myCart')) || [];
+        cart.push(product);
+        localStorage.setItem('myCart', JSON.stringify(cart));
+        
+        alert("تمت إضافة المنتج للسلة!");
+    });
+});
+
+// تعديل زر السلة في الهيدر لينقلك للصفحة الجديدة
+document.getElementById('cart-shop').addEventListener('click', () => {
+    window.location.href = 'Cart.html';
+});
+
+        // --- 3. البحث ---
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                const term = e.target.value.toLowerCase();
+                document.querySelectorAll('.products__card').forEach(card => {
+                    const title = card.querySelector('.products__title').innerText.toLowerCase();
+                    card.style.display = title.includes(term) ? "" : "none";
+                });
+            });
+        }
+    });
+    /* ================= SHOW MENU ================= */
+const navMenu = document.getElementById('nav-menu'),
+      navToggle = document.getElementById('nav-toggle'),
+      navClose = document.getElementById('nav-close')
+
+/* ===== Menu Show ===== */
+/* Validate if constant exists */
+if(navToggle){
+    navToggle.addEventListener('click', () =>{
+        navMenu.classList.add('show-menu')
+    })
+}
+
+/* ===== Menu Hidden ===== */
+/* Validate if constant exists */
+if(navClose){
+    navClose.addEventListener('click', () =>{
+        navMenu.classList.remove('show-menu')
+    })
+}
+</script>
+</body>
+</html>
